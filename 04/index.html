@@ -38,10 +38,24 @@
   <meta charset="utf-8">
 	<title>Ejercicio 04</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../_assets/js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
   <button class="add_name">+</button>
   <ul class="names"></ul>
+<script>
+   $(".add_name").click(function(){
+     var data = prompt('Por favor agrega un nombre a la lista', 'nombre');
+     $("ul").append('<li>'+'<span>'+data+'</span><a href="#" class="remove_name">eliminar</a></li>');
+   });
+   $("ul").on('click','li',function(e){
+      e.preventDefault();
+   });
+   $("ul").on('click','.remove_name',function(e){
+       
+       $(this).parent("li").remove();
 
+   });
+</script>
 </body>
 </html>
